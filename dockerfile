@@ -10,13 +10,15 @@ COPY   package.json npm-shrinkwrap.json $HOME/api-gateway/
 
 WORKDIR $HOME/api-gateway
 
+
+RUN npm i -g typescript
+
 RUN npm install -g ts-node 
 
 RUN npm install typeorm -g
 
-RUN npm i -g typescript
 
-RUN  npm install 
+
 
 # USER root
 
