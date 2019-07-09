@@ -47,54 +47,12 @@ var passport = require("passport");
 var auth_1 = require("./modules/core/model/auth");
 var helmet = require("helmet");
 var logger = require("morgan");
-var sequelize_1 = require("sequelize");
 require("reflect-metadata");
 var App = /** @class */ (function () {
     function App() {
         this.app = express();
         this.config();
-        // this.db2().then(
-        //     s => {
-        //         s.query('SELECT 1').then(
-        //             d => console.log('----', d)
-        //         )
-        //     }, error => {
-        //         console.error(error)
-        //     }
-        // );
     }
-    App.prototype.db2 = function () {
-        return __awaiter(this, void 0, void 0, function () {
-            var config, error_1;
-            return __generator(this, function (_a) {
-                switch (_a.label) {
-                    case 0:
-                        _a.trys.push([0, 2, , 3]);
-                        config = {
-                            "username": process.env.DB_USER,
-                            "password": process.env.DB_PASSWORD,
-                            "database": process.env.DB_DATABASE,
-                        };
-                        return [4 /*yield*/, new sequelize_1.Sequelize(config.database, config.username, config.password, {
-                                host: process.env.DB_HOST,
-                                port: Number(process.env.DB_PORT),
-                                dialect: "mysql",
-                                pool: {
-                                    max: 5,
-                                    min: 0,
-                                    idle: 30000
-                                },
-                            })];
-                    case 1: return [2 /*return*/, _a.sent()];
-                    case 2:
-                        error_1 = _a.sent();
-                        console.log(error_1);
-                        return [3 /*break*/, 3];
-                    case 3: return [2 /*return*/];
-                }
-            });
-        });
-    };
     App.prototype.config = function () {
         return __awaiter(this, void 0, void 0, function () {
             var _a, rootPath, pathPublicFolder, publicFolder;

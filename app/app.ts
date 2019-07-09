@@ -10,7 +10,6 @@ import * as passport from 'passport';
 import { LoginStrategy, TokenStrategy } from './modules/core/model/auth';
 import * as helmet from 'helmet';
 import * as logger from 'morgan';
-import { Sequelize } from 'sequelize';
 import "reflect-metadata";
 
 
@@ -22,46 +21,10 @@ export class App {
     constructor() {
         this.app = express();
         this.config();
-        // this.db2().then(
-        //     s => {
-        //         s.query('SELECT 1').then(
-        //             d => console.log('----', d)
-        //         )
-        //     }, error => {
-        //         console.error(error)
-        //     }
-        // );
-
 
     }
 
 
-    private async db2() {
-
-        try {
-            let config = {
-                "username": process.env.DB_USER,
-                "password": process.env.DB_PASSWORD,
-                "database": process.env.DB_DATABASE,
-            }
-            return await new Sequelize(config.database, config.username, config.password, {
-                host: process.env.DB_HOST,
-                port: Number(process.env.DB_PORT),
-                dialect: "mysql",
-
-                pool: {
-                    max: 5,
-                    min: 0,
-                    idle: 30000
-                },
-            });
-        } catch (error) {
-            console.log(error)
-        }
-
-
-
-    }
     private async config(): Promise<void> {
         this.app.use(logger('dev'));
         // MongoDb 2
