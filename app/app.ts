@@ -29,7 +29,6 @@ export class App {
         this.app.use(logger('dev'));
         // MongoDb 2
         this.db = await MongoDb.connect();
-
         // support application/json type post data
         this.app.use(bodyParser.json());
         //support application/x-www-form-urlencoded post data
@@ -37,7 +36,6 @@ export class App {
         //Public Folder For Static Angular Files
         let rootPath = __dirname.replace('/api-gateway/app', "");
         let pathPublicFolder = path.join(rootPath + '/public');
-
         let publicFolder = pathPublicFolder.replace('/dist/api-gateway', '');
         this.app.use('/public', express.static(publicFolder));
         this.app.use(cookieParser());

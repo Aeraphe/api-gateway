@@ -8,8 +8,8 @@ const PORT = process.env.API_GATEWAY_SERVER_PORT;
 let app = new App().app;
 
 const httpsOptions = {
-    key: fs.readFileSync('./cert/key.pem'),
-    cert: fs.readFileSync('./cert/cert.pem')
+    key: fs.readFileSync('./app/cert/key.pem'),
+    cert: fs.readFileSync('./app/cert/cert.pem')
 };
 
 const server = https.createServer(httpsOptions, app);
@@ -21,5 +21,5 @@ io.on('connection', (socket: SocketIO.Socket) => {
 
 
 server.listen(PORT, () => {
-    console.log('Express server listening ApiGateway Https  on port ' + PORT);
+    console.log('\x1b[33m%s\x1b[0m' ,'Express server listening ApiGateway Https  on port ' + PORT );
 });

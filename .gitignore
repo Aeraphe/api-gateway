@@ -1,14 +1,2 @@
-vendor
-frontend/ares-pm/node_modules
-.idea/ares-pm.iml
-.idea/misc.xml
-.idea/modules.xml
-.idea/php.xml
-.idea/workspace.xml
-.idea/inspectionProfiles/Project_Default.xml
-.idea/jsLinters/jshint.xml
-.idea/vcs.xml
 node_modules
-frontend/ares-pm/node_modules
-
-.vscode/settings.json
+dist/

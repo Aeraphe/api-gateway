@@ -21,7 +21,6 @@ export class UserController {
                 req.body.password = hash;
                 User.create(req, res).subscribe(newUser => {
                     const response = UserResponse.create(req, newUser);
-                    console.log(response)
                     res.status(response.status).json(response);
                 });
             }
