@@ -58,7 +58,6 @@ var UserController = /** @class */ (function () {
                 req.body.password = hash;
                 user_repository_1.default.create(req, res).subscribe(function (newUser) {
                     var response = user_response_1.default.create(req, newUser);
-                    console.log(response);
                     res.status(response.status).json(response);
                 });
             }
