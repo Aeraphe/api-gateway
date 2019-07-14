@@ -12,8 +12,7 @@
     "scripts": {
         "build": "tsc -w",
         "dev": " nodemon --watch ./dist/     ./dist/server.js  ",
-        "start": "concurrently --kill-others \"npm:build\" \"npm:dev\" ",
-        "typeorm": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js"
+        "start": "concurrently --kill-others \"npm:build\" \"npm:dev\" "
     },
     "devDependencies": {
         "@types/bcrypt": "^3.0.0",
@@ -28,7 +27,6 @@
         "@types/passport": "^0.4.7",
         "@types/passport-jwt": "^3.0.1",
         "@types/passport-local": "^1.0.33",
-        "@types/sequelize": "^4.28.3",
         "@types/socket.io": "^2.1.2",
         "concurrently": "^4.1.0",
         "nodemon": "^1.19.1",
@@ -46,18 +44,15 @@
         "express-http-proxy": "^1.5.0",
         "express-session": "^1.15.6",
         "helmet": "^3.15.0",
-        "inversify": "^5.0.1",
         "jsonwebtoken": "^8.4.0",
         "mongoose": "^5.3.12",
         "morgan": "^1.9.1",
-        "mysql": "^2.17.1",
-        "mysql2": "^1.6.5",
         "passport": "^0.4.0",
         "passport-jwt": "^4.0.0",
         "passport-local": "^1.0.0",
         "reflect-metadata": "^0.1.13",
         "rxjs": "^6.3.3",
         "socket.io": "^2.1.1",
-        "typeorm": "^0.2.18"
+
     }
 }
