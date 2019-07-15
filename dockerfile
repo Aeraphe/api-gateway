@@ -4,21 +4,15 @@ FROM node:10.16.0
 
 ENV HOME=/home/app
 
-COPY   package.json npm-shrinkwrap.json $HOME/api-gateway/
+COPY   package.json  $HOME/api-gateway/
 
 # RUN chown -R app:app $HOME/*
 
 WORKDIR $HOME/api-gateway
 
+RUN npm install
 
-RUN npm i -g typescript
-
-RUN npm install -g ts-node 
-
-RUN npm install typeorm -g
-
-
-
+RUN npm shrinkwrap
 
 # USER root
 
