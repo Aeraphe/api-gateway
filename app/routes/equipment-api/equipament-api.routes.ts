@@ -7,7 +7,7 @@ const serviceProxy = httpProxy('api-equipments:5001', {
     https: true,
     proxyReqPathResolver: function (req) {
         const url = RoutePathService.getRoute(req).split('/equipamento');
-        const route = '/api/v1/' + url[1]
+        const route = '/api/v1/equipment' + url[1]
         return route;
     },
     proxyReqOptDecorator: function (proxyReqOpts, originalReq) {
@@ -20,10 +20,11 @@ let routers = Router();
 
 // Define the Equipment Api Proxi Routes (Protected)
 routers.use(
-    '/',
     (req, res, next) => {
         serviceProxy(req, res, next);
     }
 );
+
+
 
 export default routers;
