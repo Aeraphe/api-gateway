@@ -6,7 +6,7 @@ import * as passport from 'passport';
 
 import EquipamentApiRoutes from '../routes/equipment-api/equipament-api.routes';
 
-
+import InventoryApiRoutes from '../routes/inventory-api/inventory-api.routes';
 
 let router = Router();
 
@@ -26,6 +26,11 @@ router.use(
 router.use(
     '/equipamento',
     EquipamentApiRoutes
+);
+
+router.use(
+    '/estoque',
+    InventoryApiRoutes
 );
 
 export default router;
