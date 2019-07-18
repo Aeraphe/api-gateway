@@ -4,7 +4,7 @@ import * as fs from 'fs';
 import * as socketIO from 'socket.io';
 
 require('dotenv').config({ debug: process.env.DEBUG });
-const PORT = process.env.API_GATEWAY_SERVER_PORT;
+const PORT = process.env.PORT;
 let app = new App().app;
 
 const httpsOptions = {
