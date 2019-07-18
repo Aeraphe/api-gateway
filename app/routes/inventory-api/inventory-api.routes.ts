@@ -6,7 +6,7 @@ const serviceProxy = httpProxy('api-inventory:5002', {
     https: true,
     proxyReqPathResolver: function (req) {
         const url = RoutePathService.getRoute(req).split('/estoque');
-        const route = '/api/v1/inventory' + url[1]
+        const route = '/api/v1' + url[1]
         return route;
     },
     proxyReqOptDecorator: function (proxyReqOpts, originalReq) {
