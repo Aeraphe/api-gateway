@@ -1,6 +1,7 @@
 import { Strategy } from 'passport-local';
-import { User } from '../schemas/user.schema';
+import { User } from '../modules/core/schemas/user.schema';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
+require('dotenv').config({ debug: process.env.DEBUG });
 
 export const LoginStrategy = new Strategy(
     {
@@ -8,7 +9,7 @@ export const LoginStrategy = new Strategy(
         passwordField: 'password'
     },
     (email, password, done) => {
-        User.findOne({ email: email,trash: 0}, function(err, user) {
+        User.findOne({ email: email, trash: 0 }, function (err, user) {
             if (err) {
                 return done(err);
             }
@@ -26,18 +27,13 @@ export const LoginStrategy = new Strategy(
 export const TokenStrategy = new JWTStrategy(
     {
         jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-        secretOrKey: 'serradacanastrariosaofrancisco'
-    },
-    function(jwt_payload, done) {
-        User.findOne({id: jwt_payload.sub}, function(err, user) {
-            if (err) {
-                return done(err, false);
-            }
-            if (user) {
-                return done(null, user);
-            } else {
-                return done(null, false);
-            }
-        });
+        secretOrKey: process.env.TOKEN_SECRET
+    }, async (token, done) => {
+        try {
+            return done(null, token.user);
+        } catch (error) {
+            done(error);
+        }
     }
-);
+)
+

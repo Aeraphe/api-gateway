@@ -1,9 +1,8 @@
 import { Response, Request } from 'express';
-import User from '../repository/user.repository';
-
 import * as passport from 'passport';
 import * as jwt from 'jsonwebtoken';
 import LoginResponse from '../response/login.response';
+import { IUserModel } from '../interfaces/user.model.inderface';
 
 export class LoginController {
     /**
@@ -15,7 +14,7 @@ export class LoginController {
         passport.authenticate(
             'local',
             { session: false },
-            (err, user, info) => {
+            (err, user: IUserModel, info) => {
                 let status;
                 let token;
                 if (err || !user) {
@@ -26,8 +25,8 @@ export class LoginController {
                             res.send(err);
                         }
                         token = jwt.sign(
-                            { ...user },
-                            'serradacanastrariosaofrancisco'
+                            { user: { _id: user._id, email: user.email, name: user.name } },
+                            process.env.TOKEN_SECRET
                         );
                         status = 200;
                     });
@@ -43,7 +42,7 @@ export class LoginController {
         )(req, res);
     }
 
-    public logout() {}
+    public logout() { }
 
-    public forgotPassword() {}
+    public forgotPassword() { }
 }

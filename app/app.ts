@@ -7,7 +7,7 @@ import MongoDb from './shared/services/mongodb';
 import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
 import * as passport from 'passport';
-import { LoginStrategy, TokenStrategy } from './modules/core/model/auth';
+import { LoginStrategy, TokenStrategy } from './core/auth';
 import * as helmet from 'helmet';
 import * as logger from 'morgan';
 import "reflect-metadata";

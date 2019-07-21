@@ -1,4 +1,4 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
 import { LoginController } from '../../modules/core/controllers/login.controller';
 const loginController = new LoginController();
 
