@@ -1,5 +1,5 @@
 import { Model, Schema } from 'mongoose';
-import { ICompanyModel } from '../interfaces/company.model.interface';
+import { ICompanyModel } from '../contract/company.model.interface';
 import * as mongoose from 'mongoose';
 
 const CompanyAdressSchema: Schema = new Schema({

@@ -1,6 +1,6 @@
 import { Schema, Model } from 'mongoose';
 import * as mongoose from 'mongoose';
-import { IRecordModel } from '../interfaces/record.model.interface';
+import { IRecordModel } from '../contract/record.model.interface';
 
 export const RecordSchema: Schema = new Schema({
     userId: { type: String, required: 'Usuário necessário' },

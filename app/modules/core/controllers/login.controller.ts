@@ -2,7 +2,7 @@ import { Response, Request } from 'express';
 import * as passport from 'passport';
 import * as jwt from 'jsonwebtoken';
 import LoginResponse from '../response/login.response';
-import { IUserModel } from '../interfaces/user.model.inderface';
+import { IUserModel } from '../contract/user.model.inderface';
 
 export class LoginController {
     /**

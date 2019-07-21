@@ -4,7 +4,7 @@ import {
     RoutePathService,
     routerPathService
 } from '../../../shared/services/route-path.service';
-import { IUserModel } from '../interfaces/user.model.inderface';
+import { IUserModel } from '../contract/user.model.inderface';
 import { from, Observable } from 'rxjs';
 
 export class UserRepository {

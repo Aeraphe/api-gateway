@@ -1,6 +1,6 @@
 import { Schema, Model } from 'mongoose';
 import * as mongoose from 'mongoose';
-import { IScheduleModel } from '../interfaces/schedule.model.interface';
+import { IScheduleModel } from '../contract/schedule.model.interface';
 
 export const ScheduleSchema: Schema = new Schema({
     projectId: { type: String, required: 'Selecione o Projeto' },

@@ -1,6 +1,6 @@
 import { Schema, Model } from 'mongoose';
 import * as mongoose from 'mongoose';
-import { IUserModel } from '../interfaces/user.model.inderface';
+import { IUserModel } from '../contract/user.model.inderface';
 import * as bcrypt from 'bcrypt';
 
 

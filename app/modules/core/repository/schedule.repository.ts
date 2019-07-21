@@ -1,7 +1,7 @@
 import { Observable, from } from 'rxjs';
 import { Request } from 'express';
 import { Schedule } from '../schemas/schedule.schema';
-import { IScheduleModel } from '../interfaces/schedule.model.interface';
+import { IScheduleModel } from '../contract/schedule.model.interface';
 
 interface IResponse {
     status: number;
