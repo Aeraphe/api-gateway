@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 var passport_local_1 = require("passport-local");
 var user_schema_1 = require("../schemas/user.schema");
 var passport_jwt_1 = require("passport-jwt");
+require('dotenv').config({ debug: process.env.DEBUG });
 exports.LoginStrategy = new passport_local_1.Strategy({
     usernameField: 'email',
     passwordField: 'password'
@@ -22,7 +23,7 @@ exports.LoginStrategy = new passport_local_1.Strategy({
 });
 exports.TokenStrategy = new passport_jwt_1.Strategy({
     jwtFromRequest: passport_jwt_1.ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'serradacanastrariosaofrancisco'
+    secretOrKey: process.env.TOKEN_SECRET
 }, function (jwt_payload, done) {
     user_schema_1.User.findOne({ id: jwt_payload.sub }, function (err, user) {
         if (err) {

@@ -44,7 +44,7 @@ var mongodb_1 = require("./shared/services/mongodb");
 var session = require("express-session");
 var cookieParser = require("cookie-parser");
 var passport = require("passport");
-var auth_1 = require("./modules/core/model/auth");
+var auth_1 = require("./core/auth");
 var helmet = require("helmet");
 var logger = require("morgan");
 require("reflect-metadata");
