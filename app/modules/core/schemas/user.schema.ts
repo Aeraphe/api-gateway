@@ -19,14 +19,6 @@ export const UserSchema: Schema = new Schema({
         }
     ],
     cellphones: [{ dd: String, number: String }],
-    projecs: [
-        {
-            id: String,
-            permisson: Number,
-            jobs: [{ sector: String, position: String, degree: String }]
-        }
-    ],
-    roles: Array,
     createdAte: { type: Date, default: Date.now },
     trash: { type: Number, default: 0 }
 });

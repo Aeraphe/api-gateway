@@ -1,5 +1,5 @@
 import { Model, Schema } from 'mongoose';
-import { ICompanyModel } from '../contract/company.model.interface';
+import { CompanyContract } from '../contract/company.contract';
 import * as mongoose from 'mongoose';
 
 const CompanyAdressSchema: Schema = new Schema({
@@ -24,7 +24,7 @@ export const CompanySchema: Schema = new Schema({
     trash: { type: Number, default: 0 }
 });
 
-export const Company: Model<ICompanyModel> = mongoose.model<ICompanyModel>(
+export const Company: Model<CompanyContract> = mongoose.model<CompanyContract>(
     'companies',
     CompanySchema
 );
