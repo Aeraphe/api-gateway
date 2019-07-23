@@ -1,5 +1,5 @@
 import { Response, Request } from 'express';
-import { User } from '../schemas/user.schema';
+import { User } from '../model';
 import {
     RoutePathService,
     routerPathService

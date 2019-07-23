@@ -1,11 +1,11 @@
-import { Company } from '../schemas/company.schema';
+import { Company } from '../model';
 import {
     RoutePathService,
     routerPathService
 } from '../../../shared/services/route-path.service';
 import { Request, Response } from 'express';
 import { from, Observable } from 'rxjs';
-import * as mongoose from 'mongoose';
+
 
 export class CompanyRepository {
     public route: RoutePathService = routerPathService;

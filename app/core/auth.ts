@@ -1,5 +1,5 @@
 import { Strategy } from 'passport-local';
-import { User } from '../modules/core/schemas/user.schema';
+import { User } from '../modules/core/model';
 import { Strategy as JWTStrategy, ExtractJwt } from 'passport-jwt';
 require('dotenv').config({ debug: process.env.DEBUG });
 
