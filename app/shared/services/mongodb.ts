@@ -1,5 +1,6 @@
 import * as mongoose from 'mongoose';
 import { BehaviorSubject } from 'rxjs';
+require('dotenv').config({ debug: process.env.DEBUG });
 
 class MongoDb {
     public db: any;
@@ -15,14 +16,14 @@ class MongoDb {
     public async connect(): Promise<any> {
         try {
             this.db = await mongoose.connect(
-                'mongodb://mongo:27017/ares',
+                process.env.DATABASE,
                 {
-                    
+
                     useNewUrlParser: true,
 
                 }
             );
-            console.log('Connected to db', new Date());
+            console.log('Connected to db ' + process.env.API_NAME, new Date());
             this.setDb.next(this.db);
             return this.db;
         } catch (error) {
