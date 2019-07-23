@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var user_schema_1 = require("../schemas/user.schema");
+var model_1 = require("../model");
 var route_path_service_1 = require("../../../shared/services/route-path.service");
 var rxjs_1 = require("rxjs");
 var UserRepository = /** @class */ (function () {
@@ -51,7 +51,7 @@ var UserRepository = /** @class */ (function () {
      * @return
      */
     UserRepository.prototype.create = function (req, res) {
-        var newUser = new user_schema_1.User(req.body);
+        var newUser = new model_1.User(req.body);
         return rxjs_1.from(newUser
             .save()
             .then(function (user) {
@@ -67,7 +67,7 @@ var UserRepository = /** @class */ (function () {
      * @param res
      */
     UserRepository.prototype.findByEmail = function (email) {
-        return rxjs_1.from(user_schema_1.User.findOne({ email: email })
+        return rxjs_1.from(model_1.User.findOne({ email: email })
             .then(function (user) {
             return user;
         })
@@ -83,7 +83,7 @@ var UserRepository = /** @class */ (function () {
                 switch (_a.label) {
                     case 0:
                         id = req.params.userId;
-                        return [4 /*yield*/, user_schema_1.User.findById(id, function (err, user) {
+                        return [4 /*yield*/, model_1.User.findById(id, function (err, user) {
                                 if (err) {
                                     return res.status(500).json({
                                         error: 'Não foi possível localizar o usuário',
@@ -109,7 +109,7 @@ var UserRepository = /** @class */ (function () {
             var _this = this;
             return __generator(this, function (_a) {
                 switch (_a.label) {
-                    case 0: return [4 /*yield*/, user_schema_1.User.find({}, function (err, user) {
+                    case 0: return [4 /*yield*/, model_1.User.find({}, function (err, user) {
                             if (err) {
                                 return res.status(500).json({
                                     error: 'Não foi possível localizar',

@@ -54,7 +54,7 @@ exports.UserSchema = new mongoose_1.Schema({
         }
     ],
     cellphones: [{ dd: String, number: String }],
-    createdAte: { type: Date, default: Date.now },
+    created_at: { type: Date, default: Date.now },
     trash: { type: Number, default: 0 }
 });
 /**

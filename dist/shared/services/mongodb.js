@@ -37,6 +37,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
 Object.defineProperty(exports, "__esModule", { value: true });
 var mongoose = require("mongoose");
 var rxjs_1 = require("rxjs");
+require('dotenv').config({ debug: process.env.DEBUG });
 var MongoDb = /** @class */ (function () {
     function MongoDb() {
         this.setDb = new rxjs_1.BehaviorSubject(undefined);
@@ -52,12 +53,12 @@ var MongoDb = /** @class */ (function () {
                     case 0:
                         _b.trys.push([0, 2, , 3]);
                         _a = this;
-                        return [4 /*yield*/, mongoose.connect('mongodb://mongo:27017/ares', {
+                        return [4 /*yield*/, mongoose.connect(process.env.DATABASE, {
                                 useNewUrlParser: true,
                             })];
                     case 1:
                         _a.db = _b.sent();
-                        console.log('Connected to db', new Date());
+                        console.log('Connected to db ' + process.env.API_NAME, new Date());
                         this.setDb.next(this.db);
                         return [2 /*return*/, this.db];
                     case 2:

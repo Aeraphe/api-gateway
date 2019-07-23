@@ -35,7 +35,7 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var company_schema_1 = require("../schemas/company.schema");
+var model_1 = require("../model");
 var route_path_service_1 = require("../../../shared/services/route-path.service");
 var rxjs_1 = require("rxjs");
 var CompanyRepository = /** @class */ (function () {
@@ -44,7 +44,7 @@ var CompanyRepository = /** @class */ (function () {
     }
     CompanyRepository.prototype.create = function (req) {
         try {
-            var newCompany = new company_schema_1.Company(req.body);
+            var newCompany = new model_1.Company(req.body);
             return rxjs_1.from(newCompany
                 .save()
                 .then(function (company) {
@@ -60,7 +60,7 @@ var CompanyRepository = /** @class */ (function () {
     };
     CompanyRepository.prototype.update = function (req) {
         try {
-            return rxjs_1.from(company_schema_1.Company.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
+            return rxjs_1.from(model_1.Company.findOneAndUpdate({ _id: req.params.id }, { $set: req.body }, { new: true })
                 .then(function (company) {
                 return { status: 200, company: company };
             })
@@ -78,7 +78,7 @@ var CompanyRepository = /** @class */ (function () {
      */
     CompanyRepository.prototype.updateAddress = function (req) {
         try {
-            return rxjs_1.from(company_schema_1.Company.findOneAndUpdate({ _id: req.params.companyId, 'address._id': req.params.addressId }, { $set: req.body }, { new: true })
+            return rxjs_1.from(model_1.Company.findOneAndUpdate({ _id: req.params.companyId, 'address._id': req.params.addressId }, { $set: req.body }, { new: true })
                 .then(function (company) {
                 return { status: 200, company: company };
             })
@@ -96,7 +96,7 @@ var CompanyRepository = /** @class */ (function () {
      */
     CompanyRepository.prototype.updatePhones = function (req) {
         try {
-            return rxjs_1.from(company_schema_1.Company.findOneAndUpdate({ _id: req.params.companyId, 'phones._id': req.params.phonesId }, { $set: req.body }, { new: true })
+            return rxjs_1.from(model_1.Company.findOneAndUpdate({ _id: req.params.companyId, 'phones._id': req.params.phonesId }, { $set: req.body }, { new: true })
                 .then(function (company) {
                 return { status: 200, company: company };
             })
@@ -111,7 +111,7 @@ var CompanyRepository = /** @class */ (function () {
     CompanyRepository.prototype.get = function (req) {
         try {
             var id = req.params.id;
-            return rxjs_1.from(company_schema_1.Company.findOne({ _id: id })
+            return rxjs_1.from(model_1.Company.findOne({ _id: id })
                 .then(function (company) {
                 return { status: 200, company: company };
             })
@@ -127,7 +127,7 @@ var CompanyRepository = /** @class */ (function () {
         return __awaiter(this, void 0, void 0, function () {
             var _this = this;
             return __generator(this, function (_a) {
-                company_schema_1.Company.find({}, function (err, company) {
+                model_1.Company.find({}, function (err, company) {
                     if (err) {
                         return res.status(404).json({
                             message: 'Não foi possível efetuar a operação',

@@ -18,7 +18,7 @@ exports.CompanySchema = new mongoose_1.Schema({
     name: { type: String, required: 'Favor Inserir o Nome' },
     address: [CompanyAdressSchema],
     cellphones: [CompanyCellPhonesSchema],
-    createdAte: { type: Date, default: Date.now },
+    created_at: { type: Date, default: Date.now },
     trash: { type: Number, default: 0 }
 });
 exports.Company = mongoose.model('companies', exports.CompanySchema);
