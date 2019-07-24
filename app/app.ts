@@ -7,7 +7,7 @@ import MongoDb from './shared/services/mongodb';
 import * as session from 'express-session';
 import * as cookieParser from 'cookie-parser';
 import * as passport from 'passport';
-import { LoginStrategy, TokenStrategy } from './core/auth';
+import {  TokenStrategy } from './core/auth';
 import * as helmet from 'helmet';
 import * as logger from 'morgan';
 import "reflect-metadata";
@@ -54,7 +54,6 @@ export class App {
         this.app.use(passport.initialize());
         this.app.use(passport.session());
         // Passport Strategy
-        passport.use(LoginStrategy);
         passport.use(TokenStrategy);
         // Default Api Route Group
         this.app.use('/api/v1', CoreRoutes);
