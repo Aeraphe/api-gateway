@@ -88,7 +88,6 @@ var App = /** @class */ (function () {
                         this.app.use(passport.initialize());
                         this.app.use(passport.session());
                         // Passport Strategy
-                        passport.use(auth_1.LoginStrategy);
                         passport.use(auth_1.TokenStrategy);
                         // Default Api Route Group
                         this.app.use('/api/v1', app_core_routes_1.default);
