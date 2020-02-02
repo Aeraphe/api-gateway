@@ -10,7 +10,6 @@ COPY   package.json  $HOME/api-gateway/
 
 WORKDIR $HOME/api-gateway
 
-RUN npm i mongoose-data-seed
 
 RUN npm install
 
