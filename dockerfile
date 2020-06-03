@@ -13,6 +13,8 @@ WORKDIR $HOME/api-gateway
 
 RUN npm install
 
+RUN npm audit fix
+
 RUN npm shrinkwrap
 
 # USER root
