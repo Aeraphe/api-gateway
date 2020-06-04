@@ -12,7 +12,7 @@
   "scripts": {
     "build": "tsc -w",
     "dev": " nodemon --watch ./dist/     ./dist/server.js  ",
-    "start": "concurrently --kill-others \"npm:build\" \"npm:dev\" "
+    "start": "concurrently  --kill-others \"npm:build\" \"npm:dev\" "
   },
   "devDependencies": {
     "@types/bcrypt": "^3.0.0",
