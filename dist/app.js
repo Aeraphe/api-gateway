@@ -72,7 +72,7 @@ var App = /** @class */ (function () {
                         this.app.use(bodyParser.json());
                         //support application/x-www-form-urlencoded post data
                         this.app.use(bodyParser.urlencoded({ extended: false }));
-                        rootPath = __dirname.replace('/api-gateway/app', "");
+                        rootPath = __dirname.replace('/dist', "");
                         pathPublicFolder = path.join(rootPath + '/public');
                         publicFolder = pathPublicFolder.replace('/dist/api-gateway', '');
                         this.app.use('/public', express.static(publicFolder));
