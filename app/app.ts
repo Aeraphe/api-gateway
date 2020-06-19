@@ -34,7 +34,7 @@ export class App {
         //support application/x-www-form-urlencoded post data
         this.app.use(bodyParser.urlencoded({ extended: false }));
         //Public Folder For Static Angular Files
-        let rootPath = __dirname.replace('/api-gateway/app', "");
+        let rootPath = __dirname.replace('/dist', "");
         let pathPublicFolder = path.join(rootPath + '/public');
         let publicFolder = pathPublicFolder.replace('/dist/api-gateway', '');
         this.app.use('/public', express.static(publicFolder));
