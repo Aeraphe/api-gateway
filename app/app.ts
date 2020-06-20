@@ -35,9 +35,11 @@ export class App {
         this.app.use(bodyParser.urlencoded({ extended: false }));
         //Public Folder For Static Angular Files
         let rootPath = __dirname.replace('/dist', "");
-        let pathPublicFolder = path.join(rootPath + '/public');
+        let pathPublicFolder = path.join(rootPath + '/public/local-smart/build');
         let publicFolder = pathPublicFolder.replace('/dist/api-gateway', '');
-        this.app.use('/public', express.static(publicFolder));
+        this.app.use('/app', express.static(publicFolder));
+        let pathPublicStaticFolder = path.join(rootPath + '/public/local-smart/build/static');
+        this.app.use('/static', express.static(pathPublicStaticFolder));
         this.app.use(cookieParser());
         // Request protection
         this.app.use(helmet());
