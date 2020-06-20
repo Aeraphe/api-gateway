@@ -57,7 +57,7 @@ var App = /** @class */ (function () {
     }
     App.prototype.config = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _a, rootPath, pathPublicFolder, publicFolder;
+            var _a, rootPath, pathPublicFolder, publicFolder, pathPublicStaticFolder;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
@@ -73,9 +73,11 @@ var App = /** @class */ (function () {
                         //support application/x-www-form-urlencoded post data
                         this.app.use(bodyParser.urlencoded({ extended: false }));
                         rootPath = __dirname.replace('/dist', "");
-                        pathPublicFolder = path.join(rootPath + '/public');
+                        pathPublicFolder = path.join(rootPath + '/public/local-smart/build');
                         publicFolder = pathPublicFolder.replace('/dist/api-gateway', '');
-                        this.app.use('/public', express.static(publicFolder));
+                        this.app.use('/app', express.static(publicFolder));
+                        pathPublicStaticFolder = path.join(rootPath + '/public/local-smart/build/static');
+                        this.app.use('/static', express.static(pathPublicStaticFolder));
                         this.app.use(cookieParser());
                         // Request protection
                         this.app.use(helmet());
